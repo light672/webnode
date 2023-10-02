@@ -4,6 +4,6 @@ project(webnode)
 set(CMAKE_CXX_STANDARD 17)
 
 add_executable(webnode main.cpp
-        Component.cpp
-        Component.h
-        HTMLGeneration.cpp)
+        Node.cpp
+        Node.h
+)

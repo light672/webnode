@@ -1,19 +1,20 @@
 #include <iostream>
-#include "Component.h"
+#include "Node.h"
 
 int main() {
-    Component root = Component("body");
-    Component child0 = Component("img");
-    Component child1 = Component("h3");
-    Component child1Child0 = Component("Caption");
-    Component child2 = Component("p");
-    Component child2Child0 = Component("Sub Caption");
+    Node root("body");
+    Node child0("img", true, false);
+    Node child1("h3");
+    Node child1Child0("Caption", false, false);
+    Node child2("p");
+    Node child2Child0("Sub-Caption", false, false);
     root.addChild(&child0);
     root.addChild(&child1);
     root.addChild(&child2);
 
     child1.addChild(&child1Child0);
     child2.addChild(&child2Child0);
-    root.printHierarchy("body");
+    std::cout << root.getHierarchyFromRoot("body");
+    std::cout << root.fullPageHTMLAsString();
     return 0;
 }
